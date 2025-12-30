@@ -1,0 +1,39 @@
+
+//@version=5
+strategy("RSI < 30 & EMA Cross Above Price Strategy", overlay=true, margin_long=100, margin_short=100, initial_capital=100000)
+
+// === INPUTS ===
+rsiLength = input.int(14, "RSI Length")
+emaLength = input.int(50, "EMA Length")
+
+// === INDICATORS ===
+rsi = ta.rsi(close, rsiLength)
+ema = ta.ema(close, emaLength)
+
+// === CONDITIONS ===
+// RSI below 30 (oversold)
+rsiCondition = rsi < 30
+
+// EMA crossing above price (from below to above)
+emaCrossUp = ta.crossover(ema, close)
+
+// Combined BUY condition
+buyCondition = rsiCondition and emaCrossUp
+
+// === STRATEGY ENTRIES ===
+if (buyCondition)
+    strategy.entry("BUY", strategy.long)
+
+// === OPTIONAL EXIT (take profit & stop loss) ===
+tpPerc = input.float(2.0, "Take Profit %", step=0.1)
+slPerc = input.float(1.0, "Stop Loss %", step=0.1)
+
+strategy.exit("Exit BUY", "BUY", 
+     profit = tpPerc * 100, 
+     loss = slPerc * 100)
+
+// === PLOT ===
+plot(ema, title="EMA", color=color.new(color.orange, 0))
+plot(close, title="Close", color=color.new(color.blue, 0))
+plot(rsi, title="RSI", color=color.new(color.green, 0), display=display.none)
+hline(30, "RSI 30", color=color.new(color.red, 50))

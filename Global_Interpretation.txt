@@ -1,0 +1,20 @@
+GLOBAL FEATURE IMPORTANCE INTERPRETATION
+
+The SHAP summary analysis indicates that the model is most influenced by the following features:
+
+1. Age  
+   Higher age values strongly increase the likelihood of churn.
+
+2. Balance  
+   Customers with large account balances show higher churn probability.
+
+3. Number of Products  
+   Customers with only one product contribute positively to churn risk.
+
+4. IsActiveMember  
+   Inactive customers display consistently higher SHAP values toward churn.
+
+5. Credit Score  
+   Lower credit scores push predictions toward churn, while higher scores decrease risk.
+
+Overall, the SHAP plot shows a clear separation in how customer behavior, financial attributes, and activity levels influence churn risk across the dataset.
