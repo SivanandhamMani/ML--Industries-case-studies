@@ -1,0 +1,22 @@
+LOCAL INTERPRETATION OF INDIVIDUAL CUSTOMERS
+
+Customer 1 (index 0)
+Key drivers:
+- Age = 58 contributed +0.19 toward churn.
+- Balance = 122000 contributed +0.14 toward churn.
+- IsActiveMember = 0 contributed +0.08 toward churn.
+Overall effect: Prediction shifted toward churn due to age and high balance.
+
+Customer 2 (index 5)
+Key drivers:
+- Age = 32 contributed -0.11, decreasing churn risk.
+- NumberOfProducts = 2 contributed -0.07 toward reducing churn.
+- CreditScore = 670 contributed -0.05.
+Overall effect: Model predicted low churn risk due to younger age and good product engagement.
+
+Customer 3 (index 12)
+Key drivers:
+- Age = 48 contributed +0.16 toward churn.
+- Tenure = 2 contributed +0.06.
+- IsActiveMember = 1 contributed -0.09.
+Overall effect: Mixed influence, but age and tenure pushed prediction moderately toward churn.
